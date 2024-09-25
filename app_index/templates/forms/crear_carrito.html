@@ -1,0 +1,11 @@
+{% extends 'padre.html' %}
+
+
+{% block productos %}
+    <h1>Crear Carrito</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Carrito</button>
+    </form>
+{% endblock productos %}

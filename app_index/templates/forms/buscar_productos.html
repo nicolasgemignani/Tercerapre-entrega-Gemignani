@@ -1,0 +1,25 @@
+{% extends 'padre.html' %}
+
+
+{% block productos %}
+    <h1>Buscar Productos</h1>
+    <form action="" method="get">
+        {{form.as_p}}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if productos %}
+        <h2>Resultado de busqueda:</h2>
+        <ul>
+            
+            {% for producto in productos %}
+                <li>
+                    <a href="{% url 'detalle_producto' producto.id %}">{{ producto.nombre }}</a> - ${{ producto.precio }}
+                </li>
+            {% empty %}
+                <li>No se encontraron productos.</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock productos %}
+    

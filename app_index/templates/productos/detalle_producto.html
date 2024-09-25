@@ -1,0 +1,9 @@
+{% extends 'padre.html' %}
+
+
+{% block productos %}
+    <h1>{{ producto.nombre }}</h1>
+    <p>Precio: ${{ producto.precio }}</p>
+    <p>Descripcion: {{ producto.descripcion }}</p>
+    <p>Stock: {{ producto.stock }}</p>
+{% endblock productos %}

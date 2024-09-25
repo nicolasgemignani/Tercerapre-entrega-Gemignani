@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+
+{% block productos %}
+    <h1>Buscar Carritos</h1>
+    <form action="" method="get">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if carritos %}
+        <h2>Resultados de búsqueda:</h2>
+        <ul>
+            {% for carrito in carritos %}
+                <li>
+                    Carrito de {{ carrito.usuario.username }} - ID: {{ carrito.id }}
+                    <a href="{% url 'mostrar_carrito' carrito.id %}">Ver Detalle</a>
+                </li>
+            {% empty %}
+                <li>No se encontraron carritos.</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock productos %}

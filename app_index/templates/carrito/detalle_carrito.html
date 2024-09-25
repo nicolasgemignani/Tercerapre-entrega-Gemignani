@@ -1,0 +1,15 @@
+{% extends 'padre.html' %}
+
+{% block productos %}
+    <h1>Carrito de {{ carrito.usuario.username }}</h1>
+
+    <ul>
+        {% for detalle, subtotal in detalles_con_totales %}
+            <li>{{ detalle.producto.nombre }} - Cantidad: {{ detalle.cantidad }} - Precio Total: ${{ subtotal }}</li>
+        {% empty %}
+            <li>No hay productos en el carrito.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Total: ${{ total }}</h2>
+{% endblock productos %}
